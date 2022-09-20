@@ -5,7 +5,7 @@ function [varargout]=showTrial2(window,windowRect,fileName,trialNum)
 
 DrawFormattedText(window,'Please look at the food for 10 seconds.','center','center');
 Screen('Flip',window);
-WaitSecs(5);
+WaitSecs(3);
 
 
 
@@ -19,13 +19,14 @@ my = windowRect(4)/2;
 
 DrawFormattedText(window,'Please look at the red cross for 10 seconds and be relaxed.','center','center');
 Screen('Flip',window);
-WaitSecs(1);
+WaitSecs(2);
 %show fixation cross in the middle
 Screen('DrawLine', window,[1 0 0], mx-25, my,mx+25, my,10);%horizontal line
 Screen('DrawLine', window,[1 0 0], mx, my-25,mx, my+25,10);%vertical
 Screen('Flip',window);
 WaitSecs(3);
-
+DrawFormattedText(window,'Please press the space and start next trial.','center','center');
+Screen('Flip',window);
 
 
 
