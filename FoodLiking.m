@@ -18,7 +18,7 @@ RandStream.setGlobalStream(s);
 
 %\n\n\nPRESS \\color{green}LEFT KEY IF YOU WANT THIS FOOD.\n\n\n\\color{black}PRESS \\color{red}RIGHT KEY IF YON DO NOT WANT IT\n\n\n', name, today1);
 today1 = date;
-msg=sprintf('\\fontsize{16}Hello! Your task is to look at the food then rate how much you like this food by giving a number between 1 and 9. After rating, please take the spoon and place it in mouth. Please do not swallow it until the spoon is returned to researcher. Raise hand to indicate food is finished. Press space to start each trial.');
+msg=sprintf('\\fontsize{16}Hello! Your task is to look at the food then rate how much you like this food by giving a number between 1 and 9 after you taste the food. Please take the spoon and place it in mouth when you taste it. Please do not swallow it until the spoon is returned to researcher. Raise hand to indicate food is finished. Press space to start each trial.');
 h=msgbox(msg,'Welcome',CreateStruct); 
 uiwait(h)
 
@@ -115,11 +115,11 @@ addpath('..')
         [resp(i),rt(i)]=showTrial3(window,windowRect,fileName,trialNum);
         trialNum=trialNum+1;
         save(fileName, 'resp','rt','-append');
+        
+        %DrawFormattedText(window,'Please taste the food when the spoon is returned to the researcher. Raise your hand when you finish','center','center');
         %Screen('Flip',window);
-        DrawFormattedText(window,'Please taste the food when the spoon is returned to the researcher. Raise your hand when you finish','center','center');
-        Screen('Flip',window);
-        KbPressWait(-1)      
-        WaitSecs(0.1);
+        %KbPressWait(-1)      
+        %WaitSecs(0.1);
     end
  
     
