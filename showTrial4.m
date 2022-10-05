@@ -6,14 +6,14 @@ KbName('UnifyKeyNames');%allow to use one common naming scheme for all operating
 %r1Key = KbName('z');
 %r2Key = KbName('/?');
 sKey = KbName('space');
-r1Key = KbName('1!');
-r2Key = KbName('2@');
-r3Key = KbName('3#');
-r4Key = KbName('4$');
-r5Key = KbName('5%');
-r6Key = KbName('6^');
-r7Key = KbName('7&');
-r8Key = KbName('8*');
+r1Key = KbName('Q');
+r2Key = KbName('W');
+r3Key = KbName('E');
+r4Key = KbName('R');
+r5Key = KbName('T');
+r6Key = KbName('Y');
+r7Key = KbName('U');
+r8Key = KbName('I');
 r9Key = KbName('9(');
 r0Key = KbName('0)');
 escKey = KbName('escape');
@@ -34,8 +34,8 @@ Screen('Flip',window);
 WaitSecs(3);
 
 
-DrawFormattedText(window,['How much do you want this food? If no: how negatively 1.-/2.--/3.---/4.---- ' ...\t
-    'If yes: how positively 5.+/6.++/7.+++/8.++++'],'center','center');
+DrawFormattedText(window,['How much do you want this food? If no: how negatively Q.----/W.---/E.--/R.- ' ...\t
+    'If yes: how positively T.+/Y.++/U.+++/I.++++'],'center','center');
 Screen('Flip',window);
 KbPressWait(-1)
 
@@ -66,34 +66,34 @@ while ~keyIsDown
         if keyIsDown
             rt = GetSecs-startTime;
             if keyCode(r1Key)
-                key = 1;
+                key = -4;
                 break;
             elseif keyCode(r2Key)
-                key = 2;
+                key = -3;
                 break;
                  
             elseif keyCode(r3Key)
-                key = 3;
+                key = -2;
                 break;
                  
             elseif keyCode(r4Key)
-                key = 4;
+                key = -1;
                 break;
                  
             elseif keyCode(r5Key)
-                key = 5;
+                key = 1;
                 break;
                  
             elseif keyCode(r6Key)
-                key = 6;
+                key = 2;
                 break;
                 
             elseif keyCode(r7Key)
-                key = 7;
+                key = 3;
                 break;
                  
             elseif keyCode(r8Key)
-                key = 8;
+                key = 4;
                 break;
                  
             elseif keyCode(r9Key)
