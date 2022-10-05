@@ -18,7 +18,7 @@ RandStream.setGlobalStream(s);
 
 %\n\n\nPRESS \\color{green}LEFT KEY IF YOU WANT THIS FOOD.\n\n\n\\color{black}PRESS \\color{red}RIGHT KEY IF YON DO NOT WANT IT\n\n\n', name, today1);
 today1 = date;
-msg=sprintf('\\fontsize{16}Hello! Your task is to rank how much you want the food right now by giving the number between 1 to 8. Press space to start each trial.');
+msg=sprintf('\\fontsize{16}Hello! Your task is to rank how much you want the food right now by pressing the keys between -4 to 4. Press space to start each trial.');
 h=msgbox(msg,'Welcome',CreateStruct); 
 uiwait(h)
 
@@ -29,19 +29,19 @@ addpath('..')
 
 %% Program Preparation
     
-    KbName('UnifyKeyNames');
-    sKey = KbName('space');
-    r1Key = KbName('1!');
-    r2Key = KbName('2@');
-    r3Key = KbName('3#');
-    r4Key = KbName('4$');
-    r5Key = KbName('5%');
-    r6Key = KbName('6^');
-    r7Key = KbName('7&');
-    r8Key = KbName('8*');
-    r9Key = KbName('9(');
-    r0Key = KbName('0)');
-    escKey = KbName('escape');
+KbName('UnifyKeyNames');
+sKey = KbName('space');
+r1Key = KbName('Q');
+r2Key = KbName('W');
+r3Key = KbName('E');
+r4Key = KbName('R');
+r5Key = KbName('T');
+r6Key = KbName('Y');
+r7Key = KbName('U');
+r8Key = KbName('I');
+r9Key = KbName('9(');
+r0Key = KbName('0)');
+escKey = KbName('escape');
 
  try
     isDone = 0;
@@ -103,9 +103,7 @@ addpath('..')
     resp=zeros(numitems,1);
     rt=zeros(numitems,1);
     trialNum=0;
-    %DrawFormattedText(window,'Please give your rating between 0-9 by pressing the corresponding key.','center','center');
-    %KbPressWait(-1);
-    %Screen('Flip',window);
+
 
 % save initial setup
     save(fileName,'name','td','windowRect','age');
@@ -115,14 +113,15 @@ addpath('..')
         [resp(i),rt(i)]=showTrial4(window,windowRect,fileName,trialNum);
         trialNum=trialNum+1;
         save(fileName, 'resp','rt','-append');
-        %Screen('Flip',window);
         DrawFormattedText(window,'Please press the space key to start next trial','center','center');
         Screen('Flip',window);
         KbPressWait(-1)      
         WaitSecs(0.1);
     end
- 
-    
+   
+    DrawFormattedText(window,'Please choose your favourite food to taste and rate','center','center');
+    Screen('Flip',window);
+    WaitSecs(3);
     % End of Experiment, Save results
 
     Screen('CloseAll');
