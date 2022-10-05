@@ -42,6 +42,7 @@ r3Key = KbName('E');
 r4Key = KbName('R');
 r5Key = KbName('T');
 r6Key = KbName('Y');
+%r6Key = KbName('Z');%needed to adapt based on the keyboard 
 r7Key = KbName('U');
 r8Key = KbName('I');
 r9Key = KbName('9(');
