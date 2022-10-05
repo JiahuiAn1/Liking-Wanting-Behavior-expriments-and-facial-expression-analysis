@@ -11,7 +11,8 @@ r2Key = KbName('W');
 r3Key = KbName('E');
 r4Key = KbName('R');
 r5Key = KbName('T');
-r6Key = KbName('Y');
+r6Key = KbName('Z');%needed to adapt based on the keyboard 
+%r6Key = KbName('Y');
 r7Key = KbName('U');
 r8Key = KbName('I');
 r9Key = KbName('9(');
@@ -31,7 +32,7 @@ background=[16 82 140]/255;
 
 DrawFormattedText(window,'Please look at the food for 10 seconds.','center','center');
 Screen('Flip',window);
-WaitSecs(3);
+WaitSecs(10);%change here for viewing time
 
 
 DrawFormattedText(window,['How much do you want this food? If no: how negatively Q.----/W.---/E.--/R.- ' ...\t
