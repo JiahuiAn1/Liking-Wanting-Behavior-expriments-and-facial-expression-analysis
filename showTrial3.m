@@ -31,7 +31,7 @@ background=[16 82 140]/255;
 
 DrawFormattedText(window,'Please look at the food for 10 seconds.','center','center');
 Screen('Flip',window);
-WaitSecs(3);
+WaitSecs(10);%please edit here for changing viewing time
 
 
 DrawFormattedText(window,'Please taste the food and give your rating between 1-9 by pressing the corresponding key','center','center');
