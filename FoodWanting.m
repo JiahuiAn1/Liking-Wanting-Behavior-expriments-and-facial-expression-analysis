@@ -9,7 +9,7 @@ RandStream.setGlobalStream(s);
 % Participants will press button, whether 'a or l' to distingush object or non_object.
 
     prompt = {'\fontsize{18}Your name', '\fontsize{18}Your age'};
-    title='Foodliking Task';
+    title='FoodWanting Task';
     def={'Bob','30'};
 
     answer=inputdlg(prompt,title,1,def,CreateStruct);
@@ -18,7 +18,12 @@ RandStream.setGlobalStream(s);
 
 %\n\n\nPRESS \\color{green}LEFT KEY IF YOU WANT THIS FOOD.\n\n\n\\color{black}PRESS \\color{red}RIGHT KEY IF YON DO NOT WANT IT\n\n\n', name, today1);
 today1 = date;
-msg=sprintf('\\fontsize{16}Hello! Your task is to rank how much you want the food right now by pressing the keys between -4 to 4. Press space to start each trial.');
+msg=sprintf(['\\fontsize{16}Hello! Thank you for volunteering to participate in this study.' ... 
+'During the study, all of the instructions will be presented on this screen. A researcher will also be ' ... 
+'here to present you with various items. We ask that you remain seated throughout the study and keep' ... 
+'facing this screen. Please keep your questions for the end of the study, our research team will be ' ... 
+'happy to answer everything then! \n\n\n\\color{red}Task 1A. \n\n\n You are going to be presented with various items, your task is to rank how much you WANT the food right now by giving' ... 
+'the number between -4 to 4. Press space to start each trial.']); 
 h=msgbox(msg,'Welcome',CreateStruct); 
 uiwait(h)
 
@@ -119,9 +124,11 @@ escKey = KbName('escape');
         WaitSecs(0.1);
     end
    
-    DrawFormattedText(window,'Please choose your favourite food to taste and rate','center','center');
-    Screen('Flip',window);
-    WaitSecs(3);
+    DrawFormattedText(window,'Please now avert your attention to the researcher for task 1B.','center','center');  
+
+    Screen('Flip',window); 
+
+    WaitSecs(5) 
     % End of Experiment, Save results
 
     Screen('CloseAll');
