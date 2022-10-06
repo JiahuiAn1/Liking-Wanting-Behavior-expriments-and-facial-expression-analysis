@@ -29,26 +29,14 @@ end
 background=[16 82 140]/255;
 
 
-DrawFormattedText(window,'Please look at the food for 10 seconds.','center','center');
+DrawFormattedText(window,'Please look at the food for 10 seconds.','center','center',[255,255,0]);
 Screen('Flip',window);
 WaitSecs(10);%please edit here for changing viewing time
 
 
-DrawFormattedText(window,'Please taste the food and give your rating between 1-9 by pressing the corresponding key','center','center');
+DrawFormattedText(window,'Please taste the food and wait a moment \n\n\n raise your hand to signal the experimenter \n\n\n then give your rating between 1-9 by pressing the corresponding key','center','center',[255,255,0]);
 Screen('Flip',window);
 KbPressWait(-1)
-
-%mx = windowRect(3)/2;
-%my = windowRect(4)/2;
-
-%DrawFormattedText(window,'Please look at the red cross for 5 seconds and be relaxed.','center','center');
-%Screen('Flip',window);
-%WaitSecs(2);
-%show fixation cross in the middle
-%Screen('DrawLine', window,[1 0 0], mx-25, my,mx+25, my,10);%horizontal line
-%Screen('DrawLine', window,[1 0 0], mx, my-25,mx, my+25,10);%vertical
-%Screen('Flip',window);
-%WaitSecs(3);
 
 
 
