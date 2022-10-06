@@ -11,8 +11,8 @@ r2Key = KbName('W');
 r3Key = KbName('E');
 r4Key = KbName('R');
 r5Key = KbName('T');
-r6Key = KbName('Z');%needed to adapt based on the keyboard 
-%r6Key = KbName('Y');
+%r6Key = KbName('Z');%needed to adapt based on the keyboard 
+r6Key = KbName('Y');
 r7Key = KbName('U');
 r8Key = KbName('I');
 r9Key = KbName('9(');
@@ -30,27 +30,15 @@ end
 background=[16 82 140]/255;
 
 
-DrawFormattedText(window,'Please look at the food for 10 seconds.','center','center');
+DrawFormattedText(window,'Please look at the food for 10 seconds.','center','center',[255,255,0]);
 Screen('Flip',window);
 WaitSecs(10);%change here for viewing time
 
 
-DrawFormattedText(window,['How much do you want this food? If no: how negatively Q.----/W.---/E.--/R.- ' ...\t
-    'If yes: how positively T.+/Y.++/U.+++/I.++++'],'center','center');
+DrawFormattedText(window,['How much do you want this food? \n\n\n If no: how negatively -4.----/-3.---/-2.--/-1.- \n\n\n' ...
+    'If yes: how positively 1.+/2.++/3.+++/4.++++'],'center','center',[255,255,0]);
 Screen('Flip',window);
 KbPressWait(-1)
-
-%mx = windowRect(3)/2;
-%my = windowRect(4)/2;
-
-%DrawFormattedText(window,'Please look at the red cross for 5 seconds and be relaxed.','center','center');
-%Screen('Flip',window);
-%WaitSecs(2);
-%show fixation cross in the middle
-%Screen('DrawLine', window,[1 0 0], mx-25, my,mx+25, my,10);%horizontal line
-%Screen('DrawLine', window,[1 0 0], mx, my-25,mx, my+25,10);%vertical
-%Screen('Flip',window);
-%WaitSecs(3);
 
 
 
