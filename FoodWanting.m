@@ -1,4 +1,4 @@
-numitems = 4 % How many food we present? Please edit here
+numitems = 5 % How many food we present? Please edit here
 correct=false
 CreateStruct.Interpreter = 'tex';
 CreateStruct.WindowStyle = 'modal';
@@ -18,13 +18,15 @@ RandStream.setGlobalStream(s);
 
 %\n\n\nPRESS \\color{green}LEFT KEY IF YOU WANT THIS FOOD.\n\n\n\\color{black}PRESS \\color{red}RIGHT KEY IF YON DO NOT WANT IT\n\n\n', name, today1);
 today1 = date;
-msg=sprintf(['\\fontsize{16}Hello! Thank you for volunteering to participate in this study.' ... 
-'During the study, all of the instructions will be presented on this screen. A researcher will also be ' ... 
+msg=sprintf(['\\fontsize{16}Hello! \n\n\n' ...
+'Thank you for volunteering to participate in this study.\n\n\n' ... 
+'During the study, all of the instructions will be presented on this screen. \n\n\n A researcher will also be ' ... 
 'here to present you with various items. We ask that you remain seated throughout the study and keep' ... 
-'facing this screen. Please keep your questions for the end of the study, our research team will be ' ... 
-'happy to answer everything then! \n\n\n\\color{red}Task 1A. \n\n\n You are going to be presented with various items, your task is to rank how much you WANT the food right now by giving' ... 
-'the number between -4 to 4. Press space to start each trial.']); 
+' facing this screen. \n\n\n Please keep your questions for the end of the study, our research team will be ' ... 
+'happy to answer everything then! \n\n\n\\color{red}Task 1A. \n\n\n You are going to be presented with various items, your task is to rank how much you WANT the food right now \n\n\n by clicking' ... 
+' the number between -4 to 4 \n\n\n Press space to start each trial, but please raise your hand before you press the space key \n\n\n Now you can signal the experimenter to start the experiment :)']); 
 h=msgbox(msg,'Welcome',CreateStruct); 
+set(h, 'position', [0 0 1200 1600]); %makes box bigger
 uiwait(h)
 
 fileName=sprintf('%s_%d_FoodWanting',name,today1);
@@ -96,7 +98,7 @@ escKey = KbName('escape');
     refresh = Screen('GetFlipInterval', window);
 
     Screen('TextFont',window, 'Courier New');
-    Screen('TextSize',window, 20);
+    Screen('TextSize',window, 50);
     Screen('TextStyle', window, 1+2);
 
 
@@ -119,13 +121,13 @@ escKey = KbName('escape');
         [resp(i),rt(i)]=showTrial4(window,windowRect,fileName,trialNum);
         trialNum=trialNum+1;
         save(fileName, 'resp','rt','-append');
-        DrawFormattedText(window,'Please press the space key to start next trial','center','center');
+        DrawFormattedText(window,'Please raise your hand and wait for the signal to \n\n\n press the space key to start the next trial','center','center',[255,255,0]);
         Screen('Flip',window);
         KbPressWait(-1)      
         WaitSecs(0.1);
     end
    
-    DrawFormattedText(window,'Please now avert your attention to the researcher for task 1B.','center','center');  
+    DrawFormattedText(window,'Please now avert your attention to the researcher for task 1B.','center','center',[255,255,0]);  
 
     Screen('Flip',window); 
 
