@@ -1,4 +1,4 @@
-numitems = 4 % How many food we present? Please edit here
+numitems = 5 % How many food we present? Please edit here
 correct=false
 CreateStruct.Interpreter = 'tex';
 CreateStruct.WindowStyle = 'modal';
@@ -18,10 +18,14 @@ RandStream.setGlobalStream(s);
 
 %\n\n\nPRESS \\color{green}LEFT KEY IF YOU WANT THIS FOOD.\n\n\n\\color{black}PRESS \\color{red}RIGHT KEY IF YON DO NOT WANT IT\n\n\n', name, today1);
 today1 = date;
-msg=sprintf(['\\fontsize{16}Welcome back! Now it is time for the final part of task 1 (task 1C). Here we ' ...
-    'would like you to do exactly the same as before; you will be shown some items and then asked to rank' ...
-    ' them.']); 
+msg=sprintf(['\\fontsize{16}Welcome back! \n\n\n' ...
+    ' Now it is time for the final part of task 1 (task 1C). \n\n\n' ...
+    'Here we would like you to do exactly the same as before; you will be shown some items and then asked to rank them.\n\n\n' ...
+    'Your task is to rank how much you WANT the food right now \n\n\n by clicking the number between -4 to 4 \n\n\n ' ...
+    'Press space to start each trial, but please raise your hand before you press the space key \n\n\n' ...
+    'Now you can signal the experimenter to start the experiment :)']); 
 h=msgbox(msg,'Welcome',CreateStruct); 
+set(h, 'position', [0 0 1200 1600]); %makes box bigger
 uiwait(h)
 
 fileName=sprintf('%s_%d_Wanting',name,today1);
@@ -38,8 +42,8 @@ r2Key = KbName('W');
 r3Key = KbName('E');
 r4Key = KbName('R');
 r5Key = KbName('T');
-%r6Key = KbName('Y');
-r6Key = KbName('Z');%needed to adapt based on the keyboard 
+r6Key = KbName('Y');
+%r6Key = KbName('Z');%needed to adapt based on the keyboard 
 r7Key = KbName('U');
 r8Key = KbName('I');
 r9Key = KbName('9(');
@@ -92,8 +96,8 @@ escKey = KbName('escape');
     [window, windowRect] = PsychImaging('OpenWindow', ScreenNumber, background);
     refresh = Screen('GetFlipInterval', window);
 
-    Screen('TextFont',window, 'Courier New');
-    Screen('TextSize',window, 20);
+    Screen('TextFont',window,'Courier New');
+    Screen('TextSize',window, 50);
     Screen('TextStyle', window, 1+2);
 
 
@@ -116,13 +120,19 @@ escKey = KbName('escape');
         [resp(i),rt(i)]=showTrial5(window,windowRect,fileName,trialNum);
         trialNum=trialNum+1;
         save(fileName, 'resp','rt','-append');
-        DrawFormattedText(window,'Please press the space key to start next trial','center','center');
+        DrawFormattedText(window,'Please raise your hand and wait for the signal to \n\n\n press the space key to start the next trial','center','center',[255,255,0]);
         Screen('Flip',window);
         KbPressWait(-1)      
         WaitSecs(0.1);
     end
-   
-    DrawFormattedText(window,'Thank you for completing task 1, you will now be asked to complete a questionnaire, and then you will move on to task 2.','center','center');  
+    DrawFormattedText(window,'You are almost done! Please choose one food item that you want most.','center','center',[255,255,0]);  
+
+    Screen('Flip',window); 
+
+    WaitSecs(5) 
+    
+    DrawFormattedText(window,['Thank you for completing task 1,\n\n\n you will now be asked to complete a questionnaire, \n\n\n' ...
+        'and then you will move on to task 2.'],'center','center',[255,255,0]);  
 
     Screen('Flip',window); 
 
