@@ -1,4 +1,4 @@
-numitems = 4 % How many food we present? Please edit here
+numitems = 5 % How many food we present? Please edit here
 correct=false
 CreateStruct.Interpreter = 'tex';
 CreateStruct.WindowStyle = 'modal';
@@ -18,12 +18,15 @@ RandStream.setGlobalStream(s);
 
 %\n\n\nPRESS \\color{green}LEFT KEY IF YOU WANT THIS FOOD.\n\n\n\\color{black}PRESS \\color{red}RIGHT KEY IF YON DO NOT WANT IT\n\n\n', name, today1);
 today1 = date;
-msg=sprintf(['\\fontsize{16}Hello, and welcome to the final task (task2)! You are going to be presented ' ...
-    'with some foods to taste, after you have tasted the food please rate how much you like this food ' ...
-    'by giving a number between 1 and 9. Each food will be handed to you by the researcher, please take ' ...
-    'the spoon/cup and place it in mouth. Please do not swallow it until the spoon is returned to ' ...
-    'researcher. Raise hand to indicate food is finished. Press space to start each trial. ']);
+msg=sprintf(['\\fontsize{16}Hello! \n\n\n' ...
+    'Welcome to the final task (task2).\n\n\n You are going to be presented ' ...
+    'with some foods to taste \n\n\n Please take your time to taste the food,\n\n\n after you have tasted and swallow the food,\n\n\n' ...
+    'please raise your hand to signal the experimenter,\n\n\n' ...
+    'then rate how much you like this food by giving a number between 1 and 9.\n\n\n' ...
+    'Each food will be handed to you by the researcher from side ' ...
+    'please take the spoon/cup and place it in mouth.\n\n\n Now you can raise your hand and start the experiment.']);
 h=msgbox(msg,'Welcome',CreateStruct); 
+set(h, 'position', [0 0 1200 1600]); %makes box bigger
 uiwait(h)
 
 fileName=sprintf('%s_%d_FoodLiking',name,today1);
@@ -94,7 +97,7 @@ addpath('..')
     refresh = Screen('GetFlipInterval', window);
 
     Screen('TextFont',window, 'Courier New');
-    Screen('TextSize',window, 20);
+    Screen('TextSize',window, 50);
     Screen('TextStyle', window, 1+2);
 
 
@@ -125,7 +128,11 @@ addpath('..')
         %KbPressWait(-1)      
         %WaitSecs(0.1);
     end
- 
+    DrawFormattedText(window,'Thank you for your participation:)','center','center',[255,255,0]);  
+
+    Screen('Flip',window); 
+
+    WaitSecs(5) 
     
     % End of Experiment, Save results
 
