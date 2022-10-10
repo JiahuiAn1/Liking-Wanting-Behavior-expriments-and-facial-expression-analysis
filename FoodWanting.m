@@ -18,13 +18,13 @@ RandStream.setGlobalStream(s);
 
 %\n\n\nPRESS \\color{green}LEFT KEY IF YOU WANT THIS FOOD.\n\n\n\\color{black}PRESS \\color{red}RIGHT KEY IF YON DO NOT WANT IT\n\n\n', name, today1);
 today1 = date;
-msg=sprintf(['\\fontsize{16}Hello! \n\n\n' ...
-'Thank you for volunteering to participate in this study.\n\n\n' ... 
-'During the study, all of the instructions will be presented on this screen. \n\n\n A researcher will also be ' ... 
-'here to present you with various items. We ask that you remain seated throughout the study and keep' ... 
-' facing this screen. \n\n\n Please keep your questions for the end of the study, our research team will be ' ... 
-'happy to answer everything then! \n\n\n\\color{red}Task 1A. \n\n\n You are going to be presented with various items, your task is to rank how much you WANT the food right now \n\n\n by clicking' ... 
-' the number between -4 to 4 \n\n\n Press space to start each trial, but please raise your hand before you press the space key \n\n\n Now you can signal the experimenter to start the experiment :)']); 
+msg=sprintf(['\\fontsize{16}Hello!Thank you for volunteering to participate in this study. This study consists of task 1A, B, and C, a questionnaire, and task 2. \n\n\n During the study, all of the instructions will be presented on this screen. ' ...
+    'A researcher will also be here to present you with various items. We ask that you remain seated throughout the study and keep facing this screen.' ...
+    ' Please keep your questions for the end of the study, our research team will be happy to answer everything then! \n\n\n\' ...
+    '\color{red}Task 1A: You are going to be presented with various items,\n\n\n for each item please do the following two things:\n\n\n ' ...
+    '1. Look at the food for 10 seconds, then Rank how much you WANT the food right now \n\n\n ' ...
+    '2. by clicking a number between -4 to 4 \n\n\n Each time you complete this, please: 1. Raise your hand \n\n\n 2. Upon the researcher signal, press the space bar to complete the next round \n\n\n ' ...
+    'When you have understood the above, please raise your hand to signal to the researcher we are ready to begin, and then press the space bar.']); 
 h=msgbox(msg,'Welcome',CreateStruct); 
 set(h, 'position', [0 0 1200 1600]); %makes box bigger
 uiwait(h)
@@ -98,7 +98,7 @@ escKey = KbName('escape');
     refresh = Screen('GetFlipInterval', window);
 
     Screen('TextFont',window, 'Courier New');
-    Screen('TextSize',window, 50);
+    Screen('TextSize',window, 45);
     Screen('TextStyle', window, 1+2);
 
 
@@ -114,7 +114,7 @@ escKey = KbName('escape');
 
 
 % save initial setup
-    save(fileName,'name','td','windowRect','age');
+save(fileName,'name','td','windowRect','age');
 
 %Rating begins
     for i = 1:numitems
@@ -127,7 +127,7 @@ escKey = KbName('escape');
         WaitSecs(0.1);
     end
    
-    DrawFormattedText(window,'Please now avert your attention to the researcher for task 1B.','center','center',[255,255,0]);  
+    DrawFormattedText(window,'Thank you for completing task 1A. \n\n\n Please now avert your attention to the researcher for task 1B.','center','center',[255,255,0]);  
 
     Screen('Flip',window); 
 
