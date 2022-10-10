@@ -30,9 +30,9 @@ end
 background=[16 82 140]/255;
 
 
-DrawFormattedText(window,'Please look at the food for 10 seconds.','center','center',[255,255,0]);
+DrawFormattedText(window,'Please look at the product for 10 seconds.\n\n\n [SCREEEN WILL AUTOMATICALLY CHANGE AFTER 10 SECONDS]','center','center',[255,255,0]);
 Screen('Flip',window);
-WaitSecs(10);%change here for viewing time
+WaitSecs(2);%change here for viewing time
 
 
 DrawFormattedText(window,['How much do you want this food? \n\n\n If no: how negatively -4.----/-3.---/-2.--/-1.- \n\n\n' ...
