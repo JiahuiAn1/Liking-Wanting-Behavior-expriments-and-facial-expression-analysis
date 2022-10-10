@@ -29,12 +29,13 @@ end
 background=[16 82 140]/255;
 
 
-DrawFormattedText(window,'Please look at the food for 10 seconds.','center','center',[255,255,0]);
+DrawFormattedText(window,'Please look at the product for 10 seconds. \n\n\n [SCREEEN WILL AUTOMATICALLY CHANGE AFTER 10 SECONDS]','center','center',[255,255,0]);
 Screen('Flip',window);
-WaitSecs(10);%please edit here for changing viewing time
+WaitSecs(2);%please edit here for changing viewing time
 
 
-DrawFormattedText(window,'Please taste the food and wait a moment \n\n\n raise your hand to signal the experimenter \n\n\n then give your rating between 1-9 by pressing the corresponding key','center','center',[255,255,0]);
+DrawFormattedText(window,['1. Please take the spoon/cup, place the food in your mouth and \n\n\n before swallowing return the spoon/cup to the researcher \n\n\n 2. Now take a moment and swallow the product ' ...
+    '\n\n\n -Once you have finished tasting please raise your hand \n\n\n -then give your rating between 1-9 by pressing the corresponding key.'],'center','center',[255,255,0]);
 Screen('Flip',window);
 KbPressWait(-1)
 
