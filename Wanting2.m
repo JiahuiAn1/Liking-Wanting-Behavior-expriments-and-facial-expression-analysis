@@ -19,11 +19,11 @@ RandStream.setGlobalStream(s);
 %\n\n\nPRESS \\color{green}LEFT KEY IF YOU WANT THIS FOOD.\n\n\n\\color{black}PRESS \\color{red}RIGHT KEY IF YON DO NOT WANT IT\n\n\n', name, today1);
 today1 = date;
 msg=sprintf(['\\fontsize{16}Welcome back! \n\n\n' ...
-    ' Now it is time for the final part of task 1 (task 1C). \n\n\n' ...
-    'Here we would like you to do exactly the same as before; you will be shown some items and then asked to rank them.\n\n\n' ...
-    'Your task is to rank how much you WANT the food right now \n\n\n by clicking the number between -4 to 4 \n\n\n ' ...
-    'Press space to start each trial, but please raise your hand before you press the space key \n\n\n' ...
-    'Now you can signal the experimenter to start the experiment :)']); 
+    'Now it is time for the final part of task 1 (task 1C). \n\n\n' ...
+    'Here we would like you to do exactly the same as before; you are going to be presented with various items, for each item please do the following two things: \n\n\n' ...
+    '1. Look at the food for 10 seconds, then \n\n\n 2. Rank how much you WANT the food right now by clicking a number between -4 to 4 \n\n\n ' ...
+    'Each time you complete this, please: \n\n\n 1. Raise your hand \n\n\n 2. Upon the researchers signal, press the space bar to complete next round \n\n\n'... 
+    'When you have understood the above, please raise your hand to signal to the researcher we are ready to begin, and then press the space bar.']); 
 h=msgbox(msg,'Welcome',CreateStruct); 
 set(h, 'position', [0 0 1200 1600]); %makes box bigger
 uiwait(h)
@@ -125,18 +125,14 @@ escKey = KbName('escape');
         KbPressWait(-1)      
         WaitSecs(0.1);
     end
-    DrawFormattedText(window,'You are almost done! Please choose one food item that you want most.','center','center',[255,255,0]);  
-
-    Screen('Flip',window); 
-
-    WaitSecs(5) 
     
-    DrawFormattedText(window,['Thank you for completing task 1,\n\n\n you will now be asked to complete a questionnaire, \n\n\n' ...
-        'and then you will move on to task 2.'],'center','center',[255,255,0]);  
+    DrawFormattedText(window,['Congratulations!!!\n\n\n Following the result of your reaction task you get to choose a reward. \n\n\n' ...
+        'Please select the product you want the most right now and consume it. \n\n\n Once you have consumed the item, \n\n\n please raise your hand, and then press the space bar.'],'center','center',[255,255,0]);  
 
     Screen('Flip',window); 
-
-    WaitSecs(5) 
+    KbPressWait(-1)      
+    WaitSecs(0.1);
+  
     % End of Experiment, Save results
 
     Screen('CloseAll');
